@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: ankane/pgvector:latest        # postgres + pgvector extension, free
+    container_name: cctv_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cctv
+      POSTGRES_PASSWORD: cctv123
+      POSTGRES_DB: cctv_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: cctv_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: cctv_backend
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./backend/data/snapshots:/app/data/snapshots
+
+volumes:
+  pgdata:

@@ -1,0 +1,44 @@
+# Web Framework & API Server
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+websockets>=12.0
+
+# Database & Caching
+sqlalchemy>=2.0.30
+psycopg2-binary>=2.9.9
+pgvector>=0.2.5
+redis>=5.0.4
+
+# Configuration & Utilities
+python-dotenv>=1.0.1
+pydantic>=2.7.1
+email-validator>=2.0.0
+requests>=2.32.3
+psutil>=5.9.0
+
+# Authentication & Security
+# bcrypt pinned <4.0.0 to prevent passlib 1.7.4 '__about__' AttributeError
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+bcrypt>=3.2.0,<4.0.0
+
+# Computer Vision, Deep Learning & Tracking
+# numpy pinned <2.0.0 for full compatibility with torch, insightface, opencv, and supervision
+numpy>=1.24.3,<2.0.0
+opencv-python-headless>=4.9.0.80
+torch>=2.2.0
+torchvision>=0.17.0
+ultralytics>=8.2.18
+insightface>=0.7.3
+onnxruntime>=1.17.0
+onnx>=1.14.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+scikit-image>=0.20.0
+pillow>=9.5.0
+supervision>=0.24.0,<0.28.0
+psycopg2-binary>=2.9.9
+pymysql>=1.1.1
+pgvector>=0.2.5
+pynvml>=11.5.0
