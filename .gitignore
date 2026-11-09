@@ -132,6 +132,9 @@ backend/models/*.pt
 backend/models/*.onnx
 yolov8*.pt
 
+# Allow weapon threat detection model
+!models/weapon/threat-yolov8n.pt
+
 # 7. IDE, OS & Temporary files
 .vscode/
 .idea/
